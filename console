@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+/** @var \App\App $app */
+$app = require_once __DIR__ . '/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Console Command registries
+|--------------------------------------------------------------------------
+*/
+$app->console->add(new \Exedra\Routeller\Console\Commands\RouteListCommand($app, $app->map, 'routes'));
+$app->console->add(require_once __DIR__ . '/schema/command.php');
+
+$app->console->run();
