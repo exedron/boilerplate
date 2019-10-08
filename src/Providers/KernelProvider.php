@@ -11,6 +11,8 @@ class KernelProvider implements Provider
     {
         $app->map->middleware(function(\App\Context $context) {
             $context->addParams($context->request->getParams());
+
+            return $context->next($context);
         });
     }
 }
